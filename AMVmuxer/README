@@ -1,3 +1,11 @@
+About building ffmpeg for AMV encoding (leonier's fork)
+If you intended to use MinGW (GCC 6+), please use these build options.
+
+Install libfaad2 first for AAC decoding.
+ ./configure --enable-memalign-hack --disable-ffplay --enable-gpl --enable-swscaler --enable-libfaad
+
+Building with mingw-w64 (mingw32 mode) may also work. 
+
 Testing instructions ;)
 
 Make sure you've got a fresh copy of the sourcecode:

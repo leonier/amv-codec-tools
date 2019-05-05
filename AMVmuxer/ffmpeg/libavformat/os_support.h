@@ -38,9 +38,11 @@ typedef int socklen_t;
 #endif
 
 #ifdef __MINGW32__
+#if 0 //Newer MinGW has usleep
 __declspec(dllimport) void __stdcall Sleep(unsigned long dwMilliseconds);
 // #  include <windows.h>
 #  define usleep(t)    Sleep((t) / 1000)
+#endif
 #  include <fcntl.h>
 #  define lseek(f,p,w) _lseeki64((f), (p), (w))
 #endif
