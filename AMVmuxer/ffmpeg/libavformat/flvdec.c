@@ -392,7 +392,10 @@ retry:
 					if (cfg.chan_config > 7)
 						return -1;
 					st->codec->channels = ff_mpeg4audio_channels[cfg.chan_config];
-					st->codec->sample_rate = cfg.sample_rate;
+					if(cfg.sbr == 1 && cfg.ext_sample_rate)
+						st->codec->sample_rate = cfg.ext_sample_rate;
+					else
+						st->codec->sample_rate = cfg.sample_rate;
 					dprintf(s, "mp4a config channels %d sample rate %d\n",
 						st->codec->channels, st->codec->sample_rate);
 				}
